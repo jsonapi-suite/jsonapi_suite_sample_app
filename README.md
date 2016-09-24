@@ -1,24 +1,19 @@
-# README
+# jsonapi_suite sample app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample application for [jsonapi_suite](https://jsonapi-suite.github.io/jsonapi_suite). You can use this reference implementation to help track down errors if you end up having trouble.
 
-Things you may want to cover:
+Be sure to check out `spec/api` as well!
 
-* Ruby version
+### Running
 
-* System dependencies
+To run the rails backend:
 
-* Configuration
+* `bundle install`
+* `bin/rake db:migrate`
+* `bin/rake db:seed`
 
-* Database creation
+This also comes with an optional ember frontend:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `cd ./frontend`
+* `npm install && bower install`
+* `ember s --proxy http://127.0.0.1:3000`
