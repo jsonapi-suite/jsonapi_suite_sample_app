@@ -1,0 +1,66 @@
+<div class='card'>
+  <div class='card-content'>
+    <div class='clearfix'>
+      <div class='left card-title black-text'>Employees</div>
+      <div class='right add-new'>
+        <i class='material-icons'>perm_contact_calendar</i>
+        <a href='' {{action 'showAddNew'}}>Add new employee</a>
+      </div>
+    </div>
+
+    {{#if adding}}
+      <div class='row'>
+        <form {{action 'submit' newEmployee on='submit'}}>
+          {{md-input value=newEmployee.name label='Name' class='col s3'}}
+          {{md-input value=newEmployee.age label='Age' class='col s3'}}
+
+          {{md-select content=departments
+            value=newEmployee.department
+            label="Framework"
+            prompt="Please choose..."
+            optionLabelPath="content.name"
+            optionValuePath="content"
+            class="col s4"}}
+
+          <div class='input-field'>
+            <div class='right'>
+              {{md-btn-submit text='Submit'}}
+            </div>
+          </div>
+        </form>
+      </div>
+    {{else}}
+      <div class='search'>
+        <form {{action 'search' on='submit'}}>
+          {{md-input class='left' label='Search' value=query}}
+          {{md-btn-submit text='submit' class='left' icon='mdi-action-search'}}
+        </form>
+      </div>
+    {{/if}}
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Department</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each model as |employee|}}
+          <tr>
+            <td>{{employee.name}}</td>
+            <td>{{employee.age}}</td>
+            <td>{{employee.department.name}}</td>
+            <td>
+              <a href='' class='black-text' {{action 'delete' employee}}>
+                <i class='material-icons'>delete</i>
+              </a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

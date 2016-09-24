@@ -20,3 +20,22 @@ spec/examples.txt
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# FRONTEND
+/frontend/dist
+/frontend/tmp
+
+# dependencies
+/frontend/node_modules
+/frontend/bower_components
+
+# misc
+/frontend/.sass-cache
+/frontend/connect.lock
+/frontend/coverage/*
+/frontend/libpeerconnection.log
+/frontend/npm-debug.log
+/frontend/testem.log
+
+/frontend/node_modules
+/frontend/bower_components

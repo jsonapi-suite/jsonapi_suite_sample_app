@@ -1,0 +1,37 @@
+@import 'materialize';
+@import 'ember-cli-materialize';
+
+.add-new {
+  a {
+    vertical-align: super;
+  }
+}
+
+input[type='text'].valid {
+  border-bottom: 1px solid #9e9e9e !important;
+  box-shadow: none !important;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+}
+
+.search {
+  clear: both;
+  width: 40%;
+
+  button {
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+}
+
+.clearfix:before, 
+.clearfix:after {
+  content: " "; 
+  display: table; 
+}
+
+.clearfix:after {
+  clear: both;
+}
