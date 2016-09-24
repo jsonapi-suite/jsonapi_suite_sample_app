@@ -65,7 +65,7 @@ GEM
       json (~> 1.8)
     jsonapi_ams_extensions (0.1.1)
       active_model_serializers (~> 0.10.x)
-    jsonapi_compliable (0.3.4)
+    jsonapi_compliable (0.3.5)
       active_model_serializers (~> 0.10)
       jsonapi (~> 0.1.1.beta2)
       jsonapi_ams_extensions (~> 0.1)
