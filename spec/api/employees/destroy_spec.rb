@@ -8,6 +8,7 @@ RSpec.describe 'employees#destroy', type: :request do
       delete "/api/employees/#{employee.id}"
     }.to change { Employee.count }.from(1).to(0)
     expect(response.status).to eq(200)
+
     assert_payload(:employee, employee, json_item)
   end
 end

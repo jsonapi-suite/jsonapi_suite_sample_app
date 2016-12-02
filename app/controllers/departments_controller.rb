@@ -3,6 +3,6 @@ class DepartmentsController < ApplicationController
 
   def index
     departments = Department.all
-    render_ams(departments)
+    render_jsonapi(departments)
   end
 end

@@ -21,19 +21,19 @@ class EmployeesController < ApplicationController
 
   def index
     employees = Employee.all
-    render_ams(employees)
+    render_jsonapi(employees)
   end
 
   def show
     employee = jsonapi_scope(Employee.all).find(params[:id])
-    render_ams(employee)
+    render_jsonapi(employee)
   end
 
   def create
     employee = Employee.new(strong_resource)
 
     if employee.save
-      render_ams(employee)
+      render_jsonapi(employee)
     else
       render_errors_for(employee)
     end
@@ -43,7 +43,7 @@ class EmployeesController < ApplicationController
     employee = Employee.find(params[:id])
 
     if employee.update_attributes(strong_resource)
-      render_ams(employee, scope: false)
+      render_jsonapi(employee, scope: false)
     else
       render_errors_for(employee)
     end
@@ -52,6 +52,6 @@ class EmployeesController < ApplicationController
   def destroy
     employee = Employee.find(params[:id])
     employee.destroy
-    render_ams(employee)
+    render_jsonapi(employee)
   end
 end

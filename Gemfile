@@ -5,9 +5,13 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'jsonapi_suite', '~> 0.1'
 gem 'kaminari', '~> 0.17'
-gem 'active_model_serializers',
-  git: 'https://github.com/richmolj/active_model_serializers.git',
-  branch: 'include_data_if_sideloaded'
+
+gem 'jsonapi-rb', path: '../jsonapi-rb'
+gem 'jsonapi-rails', path: '../jsonapi-rails', require: 'jsonapi/rails'
+gem 'jsonapi_compliable', path: '../jsonapi_compliable'
+gem 'jsonapi-serializable', path: '../serializable'
+gem 'jsonapi-deserializable', path: '../jsonapi-deserializable'
+gem 'jsonapi-parser', path: '../jsonapi-parser'
 
 group :development, :test do
   gem 'pry'
