@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-  jsonapi { }
+  jsonapi resource: DepartmentResource
 
   def index
     departments = Department.all

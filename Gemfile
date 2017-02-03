@@ -3,15 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
-gem 'jsonapi_suite', '~> 0.1'
+gem 'jsonapi_suite', '~> 0.5'
+gem 'jsonapi-rails', '~> 0.1'
 gem 'kaminari', '~> 0.17'
 
-gem 'jsonapi-rb', path: '../jsonapi-rb'
-gem 'jsonapi-rails', path: '../jsonapi-rails', require: 'jsonapi/rails'
-gem 'jsonapi_compliable', path: '../jsonapi_compliable'
-gem 'jsonapi-serializable', path: '../serializable'
-gem 'jsonapi-deserializable', path: '../jsonapi-deserializable'
-gem 'jsonapi-parser', path: '../jsonapi-parser'
+gem 'jsonapi-serializable',
+  git: 'https://github.com/jsonapi-rb/jsonapi-serializable.git',
+  branch: 'optim-1'
 
 group :development, :test do
   gem 'pry'

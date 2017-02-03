@@ -1,17 +1,5 @@
 class EmployeesController < ApplicationController
-  jsonapi do
-    allow_filter :name
-    allow_filter :age
-
-    allow_filter :name_prefix do |scope, value|
-      scope.where(["name LIKE ?", "#{value}%"])
-    end
-
-    includes whitelist: {
-      index: :department,
-      show: { department: :goals }
-    }
-  end
+  jsonapi resource: EmployeeResource
 
   before_action :deserialize_jsonapi!, only: [:create, :update]
 
@@ -25,15 +13,15 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    employee = jsonapi_scope(Employee.all).find(params[:id])
-    render_jsonapi(employee)
+    employee = jsonapi_scope(Employee.where(id: params[:id]))
+    render_jsonapi(employee.resolve.first, scope: false)
   end
 
   def create
     employee = Employee.new(strong_resource)
 
     if employee.save
-      render_jsonapi(employee)
+      render_jsonapi(employee, scope: false)
     else
       render_errors_for(employee)
     end
@@ -52,6 +40,6 @@ class EmployeesController < ApplicationController
   def destroy
     employee = Employee.find(params[:id])
     employee.destroy
-    render_jsonapi(employee)
+    render_jsonapi(employee, scope: false)
   end
 end
