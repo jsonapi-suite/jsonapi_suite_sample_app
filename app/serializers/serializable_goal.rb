@@ -3,5 +3,9 @@ class SerializableGoal < JSONAPI::Serializable::Resource
 
   attribute :description
 
-  belongs_to :department
+  belongs_to :department do
+    link :related do
+      @url_helpers.department_url(@object.department_id)
+    end
+  end
 end
