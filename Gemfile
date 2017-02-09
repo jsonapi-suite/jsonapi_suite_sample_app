@@ -3,11 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
-gem 'jsonapi_suite', '~> 0.1'
+gem 'jsonapi_suite', '~> 0.5'
+gem 'jsonapi-rails', '~> 0.1'
 gem 'kaminari', '~> 0.17'
-gem 'active_model_serializers',
-  git: 'https://github.com/richmolj/active_model_serializers.git',
-  branch: 'include_data_if_sideloaded'
+
+gem 'jsonapi-serializable',
+  git: 'https://github.com/jsonapi-rb/jsonapi-serializable.git',
+  branch: 'optim-1'
 
 group :development, :test do
   gem 'pry'
